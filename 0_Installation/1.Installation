@@ -1,0 +1,7 @@
+==> we have to first install the node js.
+
+PS E:\javaScriptLearning> node --version
+v18.17.0
+
+==> After installation check the version of the node.
+==> 
