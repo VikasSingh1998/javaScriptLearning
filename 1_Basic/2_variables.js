@@ -11,7 +11,7 @@ console.log(name); // singh
 var name = "Ram";
 console.log(name); // Ram
 
-// Note ==> If we are using "var" to decalre the variable then we we can create the variable with the same name.
+// Note ==> If we are using "var" to decalre the variable then we we can create the variable with the same name.(Duplicate varaibles)
 //this will create the confusion.
 // ---------------------------------------
 //we can create the variable without var also
