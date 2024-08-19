@@ -8,7 +8,7 @@ let a3 = [].concat(a1,["vikas","singh"]);
 console.log(a3);//[ 1, 2, 3, 4, 'vikas', 'singh' ]
 //-------------------------------------------------
 //Another way --> by using the spread operator
-let a4 = [...a1, "name", "roll", null]; //it will create the clone of the a1 
+let a4 = [...a1, "name", "roll", null]; //it will create the clone of the a1 and add the given extra element.
 console.log(a4); //[1, 2, 3, 4, 'name', 'roll', null]
 //-----------------------------------
 //we can use spread operator for any number of array
