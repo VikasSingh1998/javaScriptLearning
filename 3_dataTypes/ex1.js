@@ -10,8 +10,8 @@ console.log(name, typeof name);//vikas string
 // null
 let val = null;
 console.log(val);
-console.log(typeof null);//onject
-//this is but is JS.
+console.log(typeof null);//object
+//this is "bug" is JS.
 // ==============================================
 // BigInt
 let myNum = 1234;
