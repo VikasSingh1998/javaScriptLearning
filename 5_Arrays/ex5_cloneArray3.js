@@ -14,6 +14,6 @@ console.log(a4); //[1, 2, 3, 4, 'name', 'roll', null]
 //we can use spread operator for any number of array
 let a5 = [...a1, ...a2, ...a3];
 console.log(a5);
-//[1, 2, 3, 4, 1, 2, 3, 4, 'vikas', 'singh', 1, 2, 3, 4, 5, 6]
+//[1, 2, 3, 4, 1, 2, 3, 4, 'vikas', 'ravi', 'prashant', 1, 2, 3, 4,'vikas', 'singh' ]
 
 
