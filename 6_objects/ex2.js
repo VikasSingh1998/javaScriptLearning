@@ -10,3 +10,5 @@ console.log(person["person id"]);
 // console.log(person.person id);//errror
 //if we have to add a key with space--> we can add in string form
 //to access such key we will use bracket notations
+// Invalid Property Name: JavaScript property names cannot have spaces unless they are enclosed in quotes. 
+// So, "person id" should be enclosed in quotes.
