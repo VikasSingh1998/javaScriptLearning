@@ -1,4 +1,4 @@
-//push() ==> push the value to the end of the array
+//push(value) ==> push the value to the end of the array
 //pop() ==> remove and return the last element of the array.
 
 //unshift(val) ==> add value to the start of the array.
