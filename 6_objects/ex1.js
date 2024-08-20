@@ -28,3 +28,33 @@ person["mobile"] = 9940;
 console.log(person); //{name: 'vikas', age: 22, hobbies: Array(3)}
 //{name: 'vikas', age: 22, hobbies: Array(3), gender: 'male', mobile: 9940}
 //======================================
+/*
+// Why Objects are used in JS
+================================
+1. Data Structuring: 
+Objects allow you to group related data together. For example, if you want to represent a person 
+with their name, age, and address, you can use an object to keep all these properties in one place.
+    const person = {
+    name: "John Doe",
+    age: 30,
+    address: "123 Main St"
+};     
+
+2. Key-Value Pairs: Objects store data as key-value pairs, making it easy to retrieve values using their keys.
+console.log(person.name);  // Outputs: John Doe
+
+3. Dynamic Properties: You can add, modify, or delete properties dynamically.
+
+4. Methods: 
+Objects can contain functions, known as methods, which can operate on the data within the object. 
+This encapsulation of data and behavior makes objects a fundamental part of object-oriented programming (OOP).
+
+const student ={
+    name:"vikas",
+    info:function(){
+      console.log(`Good morning : ${this.name}`);
+    }
+};
+student.info();//Good morning : vikas
+
+*/
