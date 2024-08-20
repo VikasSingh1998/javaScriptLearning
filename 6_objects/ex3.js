@@ -13,7 +13,23 @@ console.log(person);
 person.key = "12334";
 console.log(person);
 //{name: 'vikas', age: 22, person id: 1001, mobile: '1234', key: '12334'}
-//---------------------
+//---------------------==================================================================
+let add="Address";
+
+const student={
+  name:"vikas",
+  roll:101,
+  age:32,
+};
+student.add="ghoti";
+console.log(student);//{ name: 'vikas', roll: 101, age: 32, add: 'ghoti' }
+//Here key is not getting read from the address variable.
+//we want key as "Address"
+
+student[add]="ghoti1"
+console.log(student);
+//{ name: 'vikas', roll: 101, age: 32, add: 'ghoti' , Address: 'ghoti1' }
+//Here key is getting read from the variable add.
 // =========================================================================================
 /*
 Understanding Bracket Notation vs. Dot Notation
