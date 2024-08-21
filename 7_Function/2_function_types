@@ -124,6 +124,75 @@ console.log(combinedGenerator.next().value); // Outputs: 'c'
 console.log(combinedGenerator.next().value); // Outputs: undefined (done: true)
 */
 //===============================================================================================
+// Example 4
+//===========
+const arr = ['a', 'b', 'c'];
+
+function* generator() {
+    yield 1;
+    yield* arr;
+    yield 2;
+}
+
+for (let value of generator()) 
+{
+    console.log(value);// 1 a b c 2
+}
+//=========================================
+// Example 5: Return from a generator function.
+
+function* generator() {
+    yield 'a';
+    return 'result';
+    yield 'b';
+}
+
+let it = generator();
+console.log(JSON.stringify(it.next()));
+// {value: "a", done: false}
+console.log(JSON.stringify(it.next()));
+// {value: "result", done: true}
+//========================================
+// Example 6:How to throw an exception from the generator.
+function* generator() {
+    throw new Error('Error Occurred');
+}
+const it = generator();
+it.next(); // Uncaught Error: Error Occurred
+/*
+Detailed Breakdown:
+--------------------
+Generator Function: The generator function is defined to immediately throw an error when it starts executing. 
+This is not a typical use case, but it illustrates how generators handle exceptions.
+
+Creating the Iterator: When you call generator(), it returns an iterator object.
+
+Calling next(): The first call to it.next() tries to execute the generator function. 
+Since the generator function throws an error immediately, this causes an uncaught exception.
+*/
+//==============================================================================
+//Example 8: Calling a generator from another generator.
+function* firstGenerator() {
+    yield 2;
+    yield 3;
+}
+
+function* secondGenerator() {
+    yield 1;
+    yield* firstGenerator();
+    yield 4;
+}
+
+
+for (let value of secondGenerator()) 
+{
+    console.log(value);//1 2 3 4
+}
+//=============================================================================
+//Example 10: Using async generators (for api call)
+
+
+
 
 
 
