@@ -34,3 +34,12 @@ let { name: var1, ...restval } = student;
 console.log(var1);//vikas
 console.log(restval);//{roll: 12}
 //=====================================
+let student={
+  name:"vikas",
+  roll:101,
+  age:23,
+  add:"rajpur",
+};
+const {name:v1,...remVal} =student;
+console.log(v1);//vikas
+console.log(remVal);//{ roll: 101, age: 23, add: 'rajpur' }
