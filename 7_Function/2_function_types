@@ -1,1 +1,161 @@
+/*
+6. Generator Functions
+=========================
+These functions use the function* syntax and the yield keyword to pause and resume execution, 
+allowing you to generate a series of values on demand.
+
+A generator function uses the yield keyword to generate values, pausing execution and sending values to the caller. 
+It retains the state to resume execution after yield, continuing immediately after the last yield run.
+
+Generator-Object : 
+Generator functions return a generator object. Generator objects are used either by calling the 
+next method on the generator object or using the generator object in a “for of” loop. 
+The Generator object is returned by a generating function and it conforms to both the iterable protocol 
+and the iterator protocol.
+*/
+//====================================================================================
+// Example 1: In this example, we will see the creation of basic generator object.
+// Generate Function generates three different numbers in three calls.
+
+function* fun() 
+{
+    yield 10;
+    yield 20;
+    yield 30;
+}
+// Calling the Generate Function
+let gen = fun();
+console.log(gen.next().value);//10
+console.log(gen.next().value);//20
+console.log(gen.next().value);//30
+console.log(gen.next().value);//undefined
+//========================================================================================
+//Example 2: This example code prints infinite series of natural numbers using a simple generator.
+
+function* generateNextNaturalNumber()
+{
+  let num=1;
+  //// Infinite Generation
+  while(true)
+  {
+    yield num++;
+  }
+}
+
+let gen = generateNextNaturalNumber();
+console.log(gen.next().value);//1
+console.log(gen.next().value);//2
+
+//now generate the next 10 natural number.
+for(let i=0;i<10;i++)
+{
+  console.log(gen.next().value);// 3 4. ... 12 
+}
+//==========================================================
+//Example 3: This example of how to manually return from a generator. 
+let array = ['a', 'b', 'c'];
+
+function* generator(arr) 
+{
+    let i = 0;
+    while (i < arr.length) 
+    {
+        yield arr[i++];
+    }
+}
+
+// Create a generator instance
+const gen = generator(array);
+
+// console.log(gen.next().value); // a
+console.log(gen.next()); // { value: 'a', done: false }
+console.log(gen.next().value); // b
+console.log(gen.next()); // { value: 'c', done: false }
+console.log(gen.next().value); // undefined
+console.log(gen.next()); // { value: undefined, done: true }
+
+// Manually return from the generator
+console.log(gen.return('Stopped early').value); // Outputs: 'Stopped early'
+
+// Further calls to next will return done: true
+console.log(gen.next()); // { value: undefined, done: true }
+console.log(gen.next().value); // Outputs: undefined
+console.log(gen.next().value); // Outputs: undefined
+
+/*
+Explanation:
+==============
+Generator Function: generator is a generator function that yields values from an array.
+it.next(): Advances the generator to the next yield statement, returning the yielded value.
+it.return(value): Ends the generator immediately, returning the specified value ('Stopped early' in this case). 
+Subsequent calls to next() will return { value: undefined, done: true }.
+
+Encountering yield and yield*
+==============================
+yield: Used within a generator to pause execution and return a value. The generator can be resumed from where it was paused.
+yield*: Delegates to another generator or iterable, yielding each value from the delegated generator or iterable.
+
+Ex: Example of yield*
+---------------------
+function* numbers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+function* letters() {
+  yield 'a';
+  yield 'b';
+  yield 'c';
+}
+
+function* combined() {
+  yield* numbers();
+  yield* letters();
+}
+
+const combinedGenerator = combined();
+console.log(combinedGenerator.next().value); // Outputs: 1
+console.log(combinedGenerator.next().value); // Outputs: 2
+console.log(combinedGenerator.next().value); // Outputs: 3
+console.log(combinedGenerator.next().value); // Outputs: 'a'
+console.log(combinedGenerator.next().value); // Outputs: 'b'
+console.log(combinedGenerator.next().value); // Outputs: 'c'
+console.log(combinedGenerator.next().value); // Outputs: undefined (done: true)
+*/
+//===============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
