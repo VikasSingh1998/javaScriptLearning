@@ -171,7 +171,7 @@ Calling next(): The first call to it.next() tries to execute the generator funct
 Since the generator function throws an error immediately, this causes an uncaught exception.
 */
 //==============================================================================
-//Example 8: Calling a generator from another generator.
+//Example 7: Calling a generator from another generator.
 function* firstGenerator() {
     yield 2;
     yield 3;
@@ -188,8 +188,78 @@ for (let value of secondGenerator())
 {
     console.log(value);//1 2 3 4
 }
-//=============================================================================
-//Example 10: Using async generators (for api call)
+//====================================================================
+//Example 8: Using async generators (for api call)
+
+const firstPromise = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(1), 5000); // Resolves after 5 seconds
+  });
+};
+
+const secondPromise = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(2), 3000); // Resolves after 3 seconds
+  });
+};
+
+async function* generator() {
+  const firstPromiseResult = await firstPromise();
+  yield firstPromiseResult; // Yields 1 after 5 seconds
+  const secondPromiseResult = await secondPromise();
+  yield secondPromiseResult; // Yields 2 after 3 seconds
+}
+
+(async () => {
+  let it = generator();
+  for await (let value of it) {
+    console.log(value); // Should log 1 and then 2
+  }
+})();
+//=====================================================================
+/*
+async function* generator(): Defines an asynchronous generator function.
+await firstPromise(): Waits for firstPromise to resolve (takes 5 seconds). After it resolves, firstPromiseResult is yielded.
+yield firstPromiseResult: Yields the resolved value (1) from firstPromise.
+await secondPromise(): Waits for secondPromise to resolve (takes 3 seconds). After it resolves, secondPromiseResult is yielded.
+yield secondPromiseResult: Yields the resolved value (2) from secondPromise.
+---------------------------
+let it = generator();: Creates an instance of the asynchronous generator. At this point, the generator is set up but not yet executed.
+for await (let value of it): Iterates over the values yielded by the asynchronous generator. It automatically handles promises and waits for each value to be available.
+console.log(value);: Logs each value yielded by the generator.
+*/
+//====================================================================
+
+
+//====================================================================
+/*
+JavaScript Function Generator – FAQs
+================================================
+What is a Generator Function in JavaScript?
+--------------------------------------------
+A generator function is a special type of function that can pause its execution and resume later. 
+They are defined using the function* syntax and use the yield keyword to yield values.
+
+How do you create a Generator Function?
+---------------------------------------
+You create a generator function by adding an asterisk (*) after the function keyword and using the yield keyword to yield values.
+
+How do Generator Functions work?
+--------------------------------
+Generator functions return a generator object when called. 
+This generator object has methods like next(), return(), and throw(). 
+The next() method is used to resume the generator function’s execution and retrieve the next value.
+
+How do you use the yield keyword?
+-----------------------------------
+The yield keyword is used to pause the execution of a generator function and return a value. 
+When the generator’s next() method is called, the function resumes execution from where it left off, just after the yield statement.
+
+How do you iterate over values from a Generator?
+----------------------------------------------------
+You can iterate over values from a generator using a for…of loop or the generator’s next() method.
+*/
+
 
 
 
