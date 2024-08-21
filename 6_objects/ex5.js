@@ -12,5 +12,10 @@ const student ={
 console.log(Object.keys(student));//[ 'name', 'age', 'grade', 'id' ]
 //------------------------------
 
-
+//we can these keys to fetch the values
+for (let key of Object.keys(student)) 
+{
+    console.log(student[key]);
+}
+  
 
