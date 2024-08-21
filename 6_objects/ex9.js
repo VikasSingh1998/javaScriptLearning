@@ -10,4 +10,5 @@ for (let user of users) {
   console.log(user); //print each object one by one
   console.log(user.id);
   console.log(user.name);
+  console.log(user.gender);
 }
