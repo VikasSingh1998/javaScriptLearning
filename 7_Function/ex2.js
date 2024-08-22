@@ -1,0 +1,151 @@
+/* forEach ==> to access eeach element
+============
+The forEach method in JavaScript is a higher-order function that takes a callback function as its input. 
+The callback function is executed once for each element in the array. 
+The forEach method does not return anything (i.e., it returns undefined).
+
+Callback Function Parameters
+-----------------------------
+The callback function passed to forEach can take up to three arguments:
+Current Value (required): The current element being processed in the array.
+Index (optional): The index of the current element being processed.
+Array (optional): The array that forEach is being called on.
+
+Syntax
+--------
+array.forEach(function(currentValue, index, array) {
+    // your code here
+});
+currentValue: The value of the current element.
+index: The index of the current element (optional).
+array: The array on which forEach was called (optional).
+=========================================================
+*/
+// example 1 
+const numbers = [2, 4, 6];
+
+numbers.forEach(function (curVal, index, array) {
+  console.log(curVal);
+  console.log(index);
+  console.log(array);
+});
+/*
+2
+0
+[ 2, 4, 6 ]
+
+4
+1
+[ 2, 4, 6 ]
+
+6
+2
+[ 2, 4, 6 ]
+
+*/
+
+// Example2 ==> Example with Arrow Function
+const numbers = [2, 4, "vikas"];
+
+numbers.forEach((curVal, index, array) => {
+  console.log(curVal);
+  console.log(index);
+  console.log(array);
+});
+/*
+2
+0
+[ 2, 4, 'vikas' ]
+4
+1
+[ 2, 4, 'vikas' ]
+vikas
+2
+[ 2, 4, 'vikas' ]
+
+*/
+
+// Example 3 ==> Modifying an Array (Not Recommended)
+const arr = [1, 4, 3, 5];
+
+arr.forEach((val, index, arr) => {
+  arr[index] = val * 2;
+});
+console.log(arr);//[ 2, 8, 6, 10 ]
+/*
+In this example, forEach is used to modify the array itself by doubling each value. 
+While this works, it's generally recommended to use map if you need to transform 
+an array since forEach is intended for iteration rather than modification.
+*/
+=====================================================================================
+/*
+map() ==> DO operation on each element and return new value to store in new array.
+======
+It creates a new array by calling a function on every element of the original array 
+and storing the results in a new array. map() returns the new array, 
+and the original array is unchanged.
+
+Syntax
+---------
+let newArray = array.map(function(currentValue, index, array) {
+    // return the transformed value here
+});
+
+let newArray = array.map((curVal, index, array)=>{
+//do some operation on val
+});
+currentValue: The value of the current element being processed.
+index (optional): The index of the current element.
+array (optional): The array on which map was called.
+------------------------------------------------------
+*/
+// Example 1 ==> 
+const arr = [1, 2, 3, 4];
+const newArr = arr.map((val, index, arr) => {
+  return val + index * 2; //do some operation on each array
+});
+console.log(newArr);//[ 1, 4, 7, 10 ]
+// ----------------------------------------------
+//Example 2==>
+let names = ["vikas", "ravi", "prashant"];
+
+let newArr = names.map((val, index, arr) => {
+  console.log(val.length); // 5 4 8
+  return val.length; //return to fill the new array.
+});
+
+console.log(newArr);//[ 5, 4, 8 ]
+// ---------------------------------------------
+// Example 3 ==> Converting Array of Objects
+
+const users = [
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "Jane", lastName: "Doe" },
+  { firstName: "Mark", lastName: "Smith" },
+];
+
+const fullNames = users.map((value, index, arr) => {
+  console.log(value);//print the value
+  console.log(index);//print the index
+  console.log(arr);//print the arr
+
+  return value.firstName + " " + value.lastName;
+});
+
+console.log(fullNames);//[ 'John Doe', 'Jane Doe', 'Mark Smith' ]
+/*
+Key Points
+The map function always returns a new array with the same length as the original array.
+If you don't return a value from the callback function, undefined will be added to the new array for that element.
+map is commonly used when you want to transform the data in an array.
+*/
+// =======================================================================
+
+
+
+
+
+
+
+
+
