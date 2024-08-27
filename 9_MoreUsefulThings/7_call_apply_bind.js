@@ -56,3 +56,22 @@ const user2 = {
 user1.about.call(user1); //Name is vikas and roll number is 21, age is undefined and mob is undefined
 user1.about.call(user1, 21, "9970771557"); //Name is vikas and roll number is 21, age is 21 and mob is 9970771557
 //============================================================
+//we can define this about method outside of the object and call on the particular object.
+function about(age, mob) {
+  console.log(
+    `Name is ${this.name} and roll number is ${this.roll}, age is ${age} and mob is ${mob}`
+  );
+}
+const user1 = {
+  name: "vikas",
+  roll: 21,
+};
+const user2 = {
+  name: "ravi",
+  roll: 22,
+};
+about.call(user1); //Name is vikas and roll number is 21, age is undefined and mob is undefined
+about.call(user1, 21, "9970771557"); //Name is vikas and roll number is 21, age is 21 and mob is 9970771557
+//call the about function on the user1 object.
+about.call(user2, 31, "9990881557"); //Name is ravi and roll number is 22, age is 31 and mob is 9990881557
+//=================================================================
