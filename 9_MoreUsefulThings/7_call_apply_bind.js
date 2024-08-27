@@ -1,6 +1,43 @@
-// call() vs apply() vs bind()
+/*call() vs apply() vs bind()
 //=============================
+In JavaScript, call(), apply(), and bind() are methods that allow you to control the context (this value) in which a function is executed. They are particularly useful when you want to borrow methods from one object and use them on another object.
 
+call() Method
+-------------
+The call() method calls a function with a given this value and arguments provided individually.
+Syntax:
+functionName.call(thisArg, arg1, arg2, ...);
+thisArg: The value to use as this inside the function.
+arg1, arg2, ...: Arguments passed individually.
+------------------------------------------------
+apply() Method
+---------------
+The apply() method is similar to call(), but it takes the arguments as an array instead of individually.
+Syntax:
+functionName.apply(thisArg, [argsArray]);
+thisArg: The value to use as this inside the function.
+argsArray: An array of arguments.
+--------------------------------------------------
+bind() Method
+-----------------
+The bind() method returns a new function, permanently setting the this value to the provided thisArg. 
+Unlike call() and apply(), bind() does not immediately invoke the function but instead returns a new function that can be called later.
+Syntax:
+const boundFunction = functionName.bind(thisArg, arg1, arg2, ...);
+thisArg: The value to use as this inside the function.
+arg1, arg2, ...: Arguments that will be passed to the function when it is invoked.
+--------------------------------------------------
+Key Differences
+================
+call(): Immediately invokes the function with a given this value and individual arguments.
+apply(): Immediately invokes the function with a given this value and arguments as an array.
+bind(): Returns a new function with a bound this value and optional preset arguments. The function can be invoked later.
+
+Use Cases
+==========
+call() and apply() are useful when you want to borrow methods from one object to use on another, or when you need to pass a different this context to a function.
+bind() is useful when you need a function with a fixed this context that can be invoked later, especially for event handlers or callbacks.
+*/
 //=======================================================
 //EX 1===> how to use call()
 function hello() {
