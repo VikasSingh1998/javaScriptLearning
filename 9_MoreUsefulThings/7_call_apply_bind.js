@@ -74,4 +74,13 @@ about.call(user1); //Name is vikas and roll number is 21, age is undefined and m
 about.call(user1, 21, "9970771557"); //Name is vikas and roll number is 21, age is 21 and mob is 9970771557
 //call the about function on the user1 object.
 about.call(user2, 31, "9990881557"); //Name is ravi and roll number is 22, age is 31 and mob is 9990881557
+//=====================================================================================
+// apply() ==> While using the apply() we will pass the argument into array.
+//---------------------
+about.apply(user2, [44, "343456566"]); //Name is ravi and roll number is 22, age is 44 and mob is 343456566
 //=================================================================
+// bind() ==> bind() return the fucntion which we can call later.
+// -----------------
+const f1 = about.bind(user2, "54", "343456566");
+f1(); //Name is ravi and roll number is 22, age is 54 and mob is 343456566
+//================================================================================
