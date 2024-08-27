@@ -2,6 +2,7 @@
 //=============================
 
 //=======================================================
+//EX 1===> how to use call()
 function hello() {
   console.log("this is the hello function");
 }
@@ -9,6 +10,8 @@ hello(); //this is the hello function
 hello.call(); //this is the hello function
 //we can use .call() on any function to call that function.
 //-===========================================================
+// Ex2 ==> SImple example for call()
+
 //suppose we have 2 user object --> user1 and user2
 const user1 = {
   name: "vikas",
@@ -36,4 +39,20 @@ user1.about.call(user2); //Name is ravi and roll number is 22
 //------------------------------------------------
 user1.about.call(); //Name is undefined and roll number is undefined
 //=============================================================
-
+// Ex3 ==> we have to pass the parameter in the call()
+const user1 = {
+  name: "vikas",
+  roll: 21,
+  about: function (age, mob) {
+    console.log(
+      `Name is ${this.name} and roll number is ${this.roll}, age is ${age} and mob is ${mob}`
+    );
+  },
+};
+const user2 = {
+  name: "ravi",
+  roll: 22,
+};
+user1.about.call(user1); //Name is vikas and roll number is 21, age is undefined and mob is undefined
+user1.about.call(user1, 21, "9970771557"); //Name is vikas and roll number is 21, age is 21 and mob is 9970771557
+//============================================================
