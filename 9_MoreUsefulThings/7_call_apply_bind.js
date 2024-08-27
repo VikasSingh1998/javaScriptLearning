@@ -103,3 +103,41 @@ myFun(); //Name is undefined and roll number is undefined
 const myFun1 = user1.about.bind(user1);
 myFun1(); //Name is vikas and roll number is 21
 //==============================================================
+/*Arrow function behaviour
+========================
+Arrow function ka this nhi hota hai.
+Arrow function jo this use krta hai, wo apne 1 level upper parent ka leta hai.
+
+// ----------------------*/
+// Example
+const user1 = {
+  name: "vikas",
+  roll: 21,
+  about: () => {
+    // console.log(this); //print the current object on which it is called.
+    console.log(`Name is ${this.name} and roll number is ${this.roll}`);
+  },
+};
+user1.about(); //Name is undefined and roll number is undefined
+
+//arrow function ka this hum change bhi nhi kr sakte.
+user1.about.call(user1); //Name is undefined and roll number is undefined
+//================================================================================
+const user2 = {
+  name: "vikas",
+  roll: 21,
+  about: function () {
+    //console.log(this); //print the current object on which it is called.
+    console.log(`Name is ${this.name} and roll number is ${this.roll}`);
+  },
+};
+const user1 = {
+  name: "vikas",
+  roll: 21,
+  about() {
+    //console.log(this); //print the current object on which it is called.
+    console.log(`Name is ${this.name} and roll number is ${this.roll}`);
+  },
+};
+//both the way are same to create the function inside the object.
+// ===================================================================================
