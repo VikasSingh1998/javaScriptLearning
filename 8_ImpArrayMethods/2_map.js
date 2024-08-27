@@ -1,6 +1,6 @@
 
 /*
-map() ==> DO operation on each element and return new value to store in new array.
+map() ==> DO operation on each element and return new array.
 ======------------------------------------------------------------------------------------
 It creates a new array by calling a function on every element of the original array 
 and storing the results in a new array. map() returns the new array, 
