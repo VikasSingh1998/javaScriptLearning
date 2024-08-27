@@ -84,3 +84,22 @@ about.apply(user2, [44, "343456566"]); //Name is ravi and roll number is 22, age
 const f1 = about.bind(user2, "54", "343456566");
 f1(); //Name is ravi and roll number is 22, age is 54 and mob is 343456566
 //================================================================================
+//Don't do this mistake
+//======================
+const user1 = {
+  name: "vikas",
+  roll: 21,
+  about: function () {
+    //console.log(this); //print the current object on which it is called.
+    console.log(`Name is ${this.name} and roll number is ${this.roll}`);
+  },
+};
+user1.about(); //Name is vikas and roll number is 21
+//store the function ref in the variable.
+const myFun = user1.about;
+myFun(); //Name is undefined and roll number is undefined
+// we are just storing the ref so it will not binding with this.
+// TO bind the myFun withe the object we have to use bind() function.
+const myFun1 = user1.about.bind(user1);
+myFun1(); //Name is vikas and roll number is 21
+//==============================================================
