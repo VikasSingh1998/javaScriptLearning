@@ -80,7 +80,43 @@ m1.forEach(([key, val], index, array) => {
 // Example: Using Objects as Keys
 // Unlike objects, where keys are typically strings, a Map allows you to use objects as keys.
 
+let obj1 = {
+  name: "vikas1",
+  roll: 1,
+};
+let obj2 = {
+  name: "vikas2",
+  roll: 2,
+};
+let obj3 = {
+  name: "vikas3",
+  roll: 3,
+};
+//we cak keep object as key in the Map.
+const map2 = new Map();
+map2.set(obj1, "this is obj1");
+map2.set(obj2, "this is obj2");
+map2.set(obj3, "this is obj3");
+console.log(map2);
+/*
+Map(3) {
+  { name: 'vikas1', roll: 1 } => 'this is obj1',
+  { name: 'vikas2', roll: 2 } => 'this is obj2',
+  { name: 'vikas3', roll: 3 } => 'this is obj3'
+}
+*/
+console.log(map2.has({ name: "vikas2", roll: 2 })); //false
+/*
+The reason map2.has({ name: "vikas2", roll: 2 }) returns false is due to how object comparison works in JavaScript.
 
+Object Identity in JavaScript
+In JavaScript, objects are compared by reference, not by value. This means that two objects are considered equal (===) only if they refer to the exact same instance in memory.
 
+map2.has({ name: "vikas2", roll: 2 }), you're creating a new object with the same properties as obj2, but this new object is stored at a different memory location. 
+Even though it has the same properties, it's not the same object as obj2 in terms of reference.
+*/
+console.log(obj2 === { name: "vikas2", roll: 2 }); // false
 
-
+// To check if the Map has a key corresponding to obj2, you should use the original reference
+console.log(map2.has(obj2)); //true
+//==================================================================================================
